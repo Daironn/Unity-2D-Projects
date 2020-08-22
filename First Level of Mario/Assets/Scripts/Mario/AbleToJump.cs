@@ -12,5 +12,6 @@ public class AbleToJump : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         Player.GetComponent<Movement>().isJumping = true;
+
     }
 }

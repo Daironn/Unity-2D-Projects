@@ -63,11 +63,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Destroy.cs" />
+    <Compile Include="Assets\Scripts\GameDirector\EnterHiddenArea.cs" />
     <Compile Include="Assets\Scripts\GameDirector\FollowPlayer.cs" />
-    <Compile Include="Assets\Scripts\GetCoin.cs" />
-    <Compile Include="Assets\Scripts\Goomba\TakeDamage.cs" />
+    <Compile Include="Assets\Scripts\GameDirector\GainACoin.cs" />
+    <Compile Include="Assets\Scripts\Goomba\Awake.cs" />
+    <Compile Include="Assets\Scripts\Goomba\DetectHit.cs" />
+    <Compile Include="Assets\Scripts\Goomba\GoombaGravity.cs" />
+    <Compile Include="Assets\Scripts\Goomba\KillPlayer.cs" />
     <Compile Include="Assets\Scripts\Goomba\Walking.cs" />
+    <Compile Include="Assets\Scripts\Grid\DestroyBlock.cs" />
+    <Compile Include="Assets\Scripts\Grid\DestroyCoinBrick.cs" />
     <Compile Include="Assets\Scripts\Mario\AbleToJump.cs" />
     <Compile Include="Assets\Scripts\Mario\Gravity.cs" />
     <Compile Include="Assets\Scripts\Mario\Movement.cs" />

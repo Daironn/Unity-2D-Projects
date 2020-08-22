@@ -17,12 +17,5 @@ public class Walking : MonoBehaviour
     {
         rb.velocity = new Vector3(velocity, 0 , 0);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(rb.transform.position.x > collision.gameObject.transform.position.x || rb.transform.position.x < collision.gameObject.transform.position.x)
-        {
-            velocity = -velocity;
-        }
 
-    }
 }

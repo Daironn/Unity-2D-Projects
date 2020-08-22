@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
 
     public float height = 15f;
 
+    public ParticleSystem JumpParticle;
+    public AudioSource JumpSound;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,18 +32,20 @@ public class Movement : MonoBehaviour
         if (Input.GetKey("right"))
         {
 
-            if (Math.Abs(rb.velocity.x) < 10)
+            if (Math.Abs(rb.velocity.x) < 12)
                 VerticalMove = Move.Left;
         }
         if (Input.GetKey("left"))
         {
-            if (Math.Abs(rb.velocity.x) < 10)
+            if (Math.Abs(rb.velocity.x) < 12)
                 VerticalMove = Move.Right;
 
         }
         if (Input.GetKeyDown("up") && isJumping == false)
         {
             HorisontalMove = Move.Jump;
+            JumpParticle.Play();
+            JumpSound.Play();
         }
 
     }
@@ -49,19 +53,22 @@ public class Movement : MonoBehaviour
     {
         if (VerticalMove == Move.Left)
         {
-            rb.AddForce(new Vector2(19, 0f));
+            rb.AddForce(new Vector2(25, 0f));
         }
         if (VerticalMove == Move.Right)
         {
-            rb.AddForce(new Vector2(-19f, 0f));
+            rb.AddForce(new Vector2(-25f, 0f));
         }
         if(HorisontalMove == Move.Jump)
         {
-            rb.velocity = Vector2.up * height;
+            rb.AddForce(new Vector2(0f, height * 75f));
+
         }
 
         VerticalMove = Move.NULL;
         HorisontalMove = Move.NULL;
+
+
     }
 
 }
