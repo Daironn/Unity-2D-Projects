@@ -16,7 +16,9 @@ public class KillPlayer : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("essa");
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<MariosForm>().DecraseState();
+
         }
         else
         {

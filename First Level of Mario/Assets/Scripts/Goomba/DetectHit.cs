@@ -11,11 +11,16 @@ public class DetectHit : MonoBehaviour
     public GameObject Goomba;
     public Walking walkingScript;
 
+    public AudioSource [] stopSound;
+
+
     private void Start()
     {
         rb = Goomba.GetComponent<Rigidbody2D>();
         boxCol = GetComponent<BoxCollider2D>();
         transform = Goomba.GetComponent<Transform>();
+        stopSound = GameObject.FindGameObjectWithTag("MainCamera").GetComponents<AudioSource>();
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -23,9 +28,12 @@ public class DetectHit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             boxCol.enabled = false;
-            Goomba.GetComponent<BoxCollider2D>().enabled = false;
-            transform.localScale = new Vector3(1, 0.5f, 1);
             walkingScript.velocity = 0;
+            transform.localScale = new Vector3(1, 0.5f, 1);
+
+            stopSound[1].Play();
+            stopSound[2].Play();
+
             Invoke("Destroy", 0.5f);
         }
     }

@@ -70,12 +70,18 @@
     <Compile Include="Assets\Scripts\Goomba\DetectHit.cs" />
     <Compile Include="Assets\Scripts\Goomba\GoombaGravity.cs" />
     <Compile Include="Assets\Scripts\Goomba\KillPlayer.cs" />
+    <Compile Include="Assets\Scripts\Goomba\PowerUp.cs" />
     <Compile Include="Assets\Scripts\Goomba\Walking.cs" />
     <Compile Include="Assets\Scripts\Grid\DestroyBlock.cs" />
     <Compile Include="Assets\Scripts\Grid\DestroyCoinBrick.cs" />
+    <Compile Include="Assets\Scripts\Grid\DestroyQuestioBrick.cs" />
     <Compile Include="Assets\Scripts\Mario\AbleToJump.cs" />
+    <Compile Include="Assets\Scripts\Mario\FinishTheGame.cs" />
     <Compile Include="Assets\Scripts\Mario\Gravity.cs" />
+    <Compile Include="Assets\Scripts\Mario\MariosForm.cs" />
     <Compile Include="Assets\Scripts\Mario\Movement.cs" />
+    <Compile Include="Assets\Scripts\Mashroom\BuffingPlayer.cs" />
+    <Compile Include="Assets\Scripts\ParticleSystem\DestroyParticle.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

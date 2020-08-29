@@ -15,8 +15,11 @@ public class Movement : MonoBehaviour
 
     public float height = 15f;
 
-    public ParticleSystem JumpParticle;
+    public GameObject JumpParticle;
     public AudioSource JumpSound;
+    public AudioSource poleSound;
+
+    public Animator animator; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,10 +47,24 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown("up") && isJumping == false)
         {
             HorisontalMove = Move.Jump;
-            JumpParticle.Play();
+            Instantiate(JumpParticle, rb.transform.position, Quaternion.identity);
             JumpSound.Play();
         }
-
+        animator.SetFloat("Speed",Math.Abs(rb.velocity.x));
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Finnish")
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            poleSound.Play();
+            Invoke("DelayFinnish", 0.7f);
+            this.enabled = false;
+        }
+    }
+    private void DelayFinnish()
+    {
+        GetComponent<FinishTheGame>().enabled = true;
     }
     void FixedMovement()
     {
@@ -67,8 +84,7 @@ public class Movement : MonoBehaviour
 
         VerticalMove = Move.NULL;
         HorisontalMove = Move.NULL;
-
-
     }
+
 
 }
